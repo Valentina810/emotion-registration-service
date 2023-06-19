@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS causes
 
 CREATE TABLE IF NOT EXISTS events_causes
 (
-    event_id       bigint REFERENCES events (id_event) ON DELETE CASCADE,
+    event_id bigint REFERENCES events (id_event) ON DELETE CASCADE,
     cause_id bigint REFERENCES causes (id_cause) ON DELETE CASCADE
 );
 
@@ -57,6 +57,6 @@ CREATE TABLE IF NOT EXISTS tablets
 
 CREATE TABLE IF NOT EXISTS events_tablets
 (
-    event_id       bigint REFERENCES events (id_event) ON DELETE CASCADE,
+    event_id  bigint REFERENCES events (id_event) ON DELETE CASCADE,
     tablet_id bigint REFERENCES tablets (id_tablet) ON DELETE CASCADE
 );
