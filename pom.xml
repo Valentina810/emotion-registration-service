@@ -17,7 +17,6 @@
 	<packaging>pom</packaging>
 	<modules>
 		<module>emotion-registration-service</module>
-		<module>emotion-statistics-service</module>
 	</modules>
 
 	<description>diary-of-emotions</description>
