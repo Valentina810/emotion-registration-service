@@ -15,6 +15,7 @@ import javax.validation.constraints.NotNull;
 @AllArgsConstructor
 @Getter
 @Setter
+@Schema(description = "Сущность Эмоция")
 public class EmotionCreateDto {
     @NotNull
     @NotBlank

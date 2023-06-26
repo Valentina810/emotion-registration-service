@@ -3,15 +3,18 @@ package com.github.valentina810.diaryofemotions.services.impl;
 import com.github.valentina810.diaryofemotions.domain.dto.EmotionCreateDto;
 import com.github.valentina810.diaryofemotions.domain.dto.EmotionDto;
 import com.github.valentina810.diaryofemotions.domain.model.Emotion;
+import com.github.valentina810.diaryofemotions.exception.NotFoundException;
 import com.github.valentina810.diaryofemotions.mapper.EmotionMapper;
 import com.github.valentina810.diaryofemotions.repositories.EmotionRepository;
 import com.github.valentina810.diaryofemotions.services.EmotionService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.hibernate.exception.ConstraintViolationException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
-import org.webjars.NotFoundException;
+
+import java.sql.SQLException;
 
 @Service
 @Transactional(isolation = Isolation.SERIALIZABLE)
@@ -23,6 +26,10 @@ public class EmotionServiceImpl implements EmotionService {
 
     @Override
     public EmotionDto saveEmotion(EmotionCreateDto emotionCreateDto) {
+        if (emotionRepository.findByName(emotionCreateDto.getName()).isPresent()) {
+            throw new ConstraintViolationException(String.format("Эмоция с названием '" + emotionCreateDto.getName() + "' уже существует"),
+                    new SQLException(), emotionCreateDto.getName());
+        }
         EmotionDto emotionDto = emotionMapper.toEmotionDto(emotionRepository.save(emotionMapper.toEmotion(emotionCreateDto)));
         log.info("Добавлена новая эмоция {}", emotionDto);
         return emotionDto;

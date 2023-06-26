@@ -12,11 +12,12 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
+@Schema(description = "Сущность Эмоция")
 public class EmotionDto {
-    @Schema(description = "Уникальный идентификатор")
+    @Schema(description = "Уникальный идентификатор", example = "1")
     private Long id;
-    @Schema(description = "Название")
+    @Schema(description = "Название", example = "Гнев")
     private String name;
-    @Schema(description = "Url по которому хранится изображение")
+    @Schema(description = "Url по которому хранится изображение", example = "https://emotions.ru/pictire/angry.png")
     private String pictureUrl;
 }
