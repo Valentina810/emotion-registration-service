@@ -24,7 +24,7 @@ import javax.validation.Valid;
 @RequiredArgsConstructor
 @RequestMapping(path = "/admin/emotions")
 @Validated
-@Tag(name = "Управление справочником Эмоции")
+@Tag(name = "Управление справочником Эмоции для админстратора")
 public class AdminEmotionController {
 
     private final EmotionService emotionService;
@@ -32,14 +32,14 @@ public class AdminEmotionController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     @Operation(summary = "Добавление новой эмоции")
-    public EmotionDto createEmotion(@RequestBody EmotionCreateDto emotionCreateDto) {
-        return emotionService.saveEmotion(emotionCreateDto);
+    public EmotionDto createEmotion(@Valid @RequestBody EmotionCreateDto emotionCreateDto) {
+        return emotionService.addEmotion(emotionCreateDto);
     }
 
     @DeleteMapping("/{emotionId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @Operation(summary = "Удаление эмоции по id")
-    public void createEmotion(@PathVariable @Parameter(description = "Идентификатор эмоции") long emotionId) {
+    public void deleteEmotion(@PathVariable @Parameter(description = "Идентификатор эмоции") long emotionId) {
         emotionService.deleteEmotion(emotionId);
     }
 
