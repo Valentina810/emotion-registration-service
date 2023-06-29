@@ -37,8 +37,8 @@ public class PublicEmotionController {
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     @Operation(summary = "Получение списка эмоций постранично")
-    public List<EmotionDto> getEmotion(@PositiveOrZero @RequestParam(name = "from", defaultValue = "0") Integer from,
-                                       @Positive @RequestParam(name = "size", defaultValue = "10") Integer size) {
+    public List<EmotionDto> getEmotions(@PositiveOrZero @RequestParam(name = "from", defaultValue = "0") Integer from,
+                                        @Positive @RequestParam(name = "size", defaultValue = "10") Integer size) {
         return emotionService.getEmotions(from, size);
     }
 }
