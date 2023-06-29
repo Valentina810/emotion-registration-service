@@ -1,0 +1,5 @@
+databaseChangeLog:
+  - include:
+      file: db/changelog/v.1.0.0/changeset/2023-06-19-create_tables.sql
+  - include:
+      file: db/changelog/v.1.0.0/changeset/2023-06-22-add-column-picture-in-table_emotions.sql
