@@ -10,7 +10,9 @@ import org.mapstruct.Mapping;
 public interface EmotionMapper {
     EmotionDto toEmotionDto(Emotion emotion);
 
-    Emotion toEmotion(EmotionDto emotionDto);
+    @Mapping(source = "emotion.name", target = "name")
+    @Mapping(source = "emotion.pictureUrl", target = "pictureUrl")
+    EmotionCreateDto toEmotionCreateDto(Emotion emotion);
 
     @Mapping(source = "emotionCreateDto.name", target = "name")
     @Mapping(source = "emotionCreateDto.pictureUrl", target = "pictureUrl")

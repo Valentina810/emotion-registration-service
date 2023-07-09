@@ -14,7 +14,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-@Schema(description = "Сущность Эмоция")
+@Schema(description = "Сущность 'Эмоция'")
 public class EmotionDto {
     @Schema(description = "Уникальный идентификатор", example = "1")
     private Long id;

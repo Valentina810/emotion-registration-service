@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 @Getter
 @Builder
 @RequiredArgsConstructor
-@Schema(description = "Сущность Сообщение об ошибке")
+@Schema(description = "Сущность 'Сообщение об ошибке'")
 public final class ErrorResponse {
     @Schema(description = "Статус", example = "Conflict")
     private final String status;
