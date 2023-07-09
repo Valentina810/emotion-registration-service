@@ -8,7 +8,6 @@ import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,8 +22,7 @@ import javax.validation.Valid;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping(path = "/admin/emotions")
-@Validated
-@Tag(name = "Управление справочником Эмоции для админстратора")
+@Tag(name = "Управление справочником Эмоции для администратора")
 public class AdminEmotionController {
 
     private final EmotionService emotionService;
@@ -45,9 +43,9 @@ public class AdminEmotionController {
 
     @PatchMapping("/{emotionId}")
     @ResponseStatus(HttpStatus.OK)
-    @Operation(summary = "Редактирование эмоции")
+    @Operation(summary = "Редактирование эмоции", description = "Поле сущности не будет обновлено в случае, если переданное значение поля - пустая строка")
     public EmotionDto updateEmotion(@PathVariable @Parameter(description = "Идентификатор эмоции") long emotionId,
-                                    @Valid @RequestBody EmotionCreateDto emotionCreateDto) {
+                                    @RequestBody EmotionCreateDto emotionCreateDto) {
         return emotionService.updateEmotion(emotionId, emotionCreateDto);
     }
 }

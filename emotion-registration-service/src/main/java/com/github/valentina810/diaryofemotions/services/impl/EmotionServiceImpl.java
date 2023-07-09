@@ -49,11 +49,20 @@ public class EmotionServiceImpl implements EmotionService {
     public EmotionDto updateEmotion(long emotionId, EmotionCreateDto emotionCreateDto) {
         Emotion emotion = emotionRepository.findById(emotionId).orElseThrow(() ->
                 new NotFoundException(String.format("Эмоция с id %d не найдена", emotionId)));
-        emotion.setName(emotionCreateDto.getName());
-        emotion.setPictureUrl(emotionCreateDto.getPictureUrl());
-        EmotionDto emotionDto = emotionMapper.toEmotionDto(emotionRepository.save(emotion));
-        log.info("Изменена эмоция {}", emotionDto);
-        return emotionDto;
+        if (emotionCreateDto.equals(emotionMapper.toEmotionCreateDto(emotion))) {
+            log.info("Эмоция {} не была изменена, так как поля объекта совпадают с ранее сохранёнными", emotion);
+            return emotionMapper.toEmotionDto(emotion);
+        } else {
+            if (emotionCreateDto.getName() != null && !emotionCreateDto.getName().isBlank()) {
+                emotion.setName(emotionCreateDto.getName());
+            }
+            if (emotionCreateDto.getPictureUrl() != null && !emotionCreateDto.getPictureUrl().isBlank()) {
+                emotion.setPictureUrl(emotionCreateDto.getPictureUrl());
+            }
+            EmotionDto emotionDto = emotionMapper.toEmotionDto(emotionRepository.save(emotion));
+            log.info("Изменена эмоция {}", emotionDto);
+            return emotionDto;
+        }
     }
 
     @Override
