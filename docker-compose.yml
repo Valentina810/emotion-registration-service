@@ -1,0 +1,27 @@
+version: '3.8'
+services:
+  server:
+    build: ./
+    image: emotion-registration-service
+    container_name: emotion-registration-service
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/emotions-db
+      - SPRING_DATASOURCE_USERNAME=user
+      - SPRING_DATASOURCE_PASSWORD=password
+    volumes:
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+
+  db:
+    image: postgres:14-alpine
+    container_name: postgresql
+    ports:
+      - "6541:5432"
+    environment:
+      - POSTGRES_DB=emotions-db
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
