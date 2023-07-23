@@ -18,6 +18,7 @@ import java.nio.charset.StandardCharsets;
 import static org.hamcrest.Matchers.is;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyLong;
+import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -98,7 +99,7 @@ class AdminEmotionControllerTest {
             throw new ObjectMapperException(emotionCreateDto.toString());
         }
 
-        verify(emotionService, times(0)).addEmotion(emotionCreateDto);
+        verify(emotionService, never()).addEmotion(emotionCreateDto);
     }
 
     @Test
@@ -116,7 +117,7 @@ class AdminEmotionControllerTest {
             throw new ObjectMapperException(emotionCreateDto.toString());
         }
 
-        verify(emotionService, times(0)).addEmotion(emotionCreateDto);
+        verify(emotionService, never()).addEmotion(emotionCreateDto);
     }
 
     @Test
@@ -134,7 +135,7 @@ class AdminEmotionControllerTest {
             throw new ObjectMapperException(emotionCreateDto.toString());
         }
 
-        verify(emotionService, times(0)).addEmotion(emotionCreateDto);
+        verify(emotionService, never()).addEmotion(emotionCreateDto);
     }
 
     @Test
@@ -152,7 +153,7 @@ class AdminEmotionControllerTest {
             throw new ObjectMapperException(emotionCreateDto.toString());
         }
 
-        verify(emotionService, times(0)).addEmotion(emotionCreateDto);
+        verify(emotionService, never()).addEmotion(emotionCreateDto);
     }
 
     @Test
@@ -199,11 +200,10 @@ class AdminEmotionControllerTest {
                             .accept(MediaType.APPLICATION_JSON))
                     .andExpect(status().isBadRequest());
         } catch (Exception e) {
-
             throw new ObjectMapperException(emotionCreateDtoForUpdate.toString());
         }
 
-        verify(emotionService, times(0)).updateEmotion(1, emotionCreateDtoForUpdate);
+        verify(emotionService, never()).updateEmotion(1, emotionCreateDtoForUpdate);
     }
 
     @Test
@@ -219,6 +219,6 @@ class AdminEmotionControllerTest {
             throw new ObjectMapperException(emotionCreateDtoForUpdate.toString());
         }
 
-        verify(emotionService, times(0)).updateEmotion(1, emotionCreateDtoForUpdate);
+        verify(emotionService, never()).updateEmotion(1, emotionCreateDtoForUpdate);
     }
 }
