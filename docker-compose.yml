@@ -25,7 +25,7 @@ services:
     ports:
       - "6541:5432"
     volumes:
-      - db:/var/lib/postgresql/data
+      - /var/lib/postgresql/data
     environment:
       - POSTGRES_DB=emotions-db
       - POSTGRES_USER=user
