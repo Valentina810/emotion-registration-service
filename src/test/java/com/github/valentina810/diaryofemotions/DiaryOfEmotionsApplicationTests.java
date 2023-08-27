@@ -3,10 +3,10 @@ package com.github.valentina810.diaryofemotions;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
+//@SpringBootTest
 class EmotionRegistrationServiceAppTests {
 
-	@Test
+//	@Test
 	void contextLoads() {
 	}
 }

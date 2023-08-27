@@ -1,5 +1,3 @@
 FROM amazoncorretto:11-alpine-jdk
-WORKDIR /app
-COPY . .
-RUN mvn clean install
+COPY ./target/*.jar emotion-registration-service.jar
 ENTRYPOINT ["java","-jar","emotion-registration-service.jar"]
