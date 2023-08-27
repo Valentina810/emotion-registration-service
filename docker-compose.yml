@@ -1,9 +1,7 @@
 version: '3.8'
 services:
   server:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    build: ./
     image: emotion-registration-service
     container_name: emotion-registration-service
     ports:
