@@ -1,7 +1,9 @@
 version: '3.8'
 services:
   server:
-    build: ./
+    build:
+      context: .
+      dockerfile: Dockerfile
     image: emotion-registration-service
     container_name: emotion-registration-service
     ports:
@@ -13,6 +15,7 @@ services:
       - SPRING_DATASOURCE_USERNAME=user
       - SPRING_DATASOURCE_PASSWORD=password
     volumes:
+      - .:app
       - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
 
@@ -22,7 +25,7 @@ services:
     ports:
       - "6541:5432"
     volumes:
-      - /var/lib/postgresql/data
+      - db:/var/lib/postgresql/data
     environment:
       - POSTGRES_DB=emotions-db
       - POSTGRES_USER=user
