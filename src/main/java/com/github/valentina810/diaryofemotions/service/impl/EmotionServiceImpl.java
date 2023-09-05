@@ -1,12 +1,12 @@
-package com.github.valentina810.diaryofemotions.services.impl;
+package com.github.valentina810.diaryofemotions.service.impl;
 
 import com.github.valentina810.diaryofemotions.domain.dto.EmotionCreateDto;
 import com.github.valentina810.diaryofemotions.domain.dto.EmotionDto;
 import com.github.valentina810.diaryofemotions.domain.model.Emotion;
 import com.github.valentina810.diaryofemotions.exception.NotFoundException;
 import com.github.valentina810.diaryofemotions.mapper.EmotionMapper;
-import com.github.valentina810.diaryofemotions.repositories.EmotionRepository;
-import com.github.valentina810.diaryofemotions.services.EmotionService;
+import com.github.valentina810.diaryofemotions.repository.EmotionRepository;
+import com.github.valentina810.diaryofemotions.service.EmotionService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.hibernate.exception.ConstraintViolationException;
