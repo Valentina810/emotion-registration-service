@@ -1,4 +1,4 @@
-package com.github.valentina810.diaryofemotions.repositories;
+package com.github.valentina810.diaryofemotions.repository;
 
 import com.github.valentina810.diaryofemotions.domain.model.Emotion;
 import org.springframework.data.jpa.repository.JpaRepository;
