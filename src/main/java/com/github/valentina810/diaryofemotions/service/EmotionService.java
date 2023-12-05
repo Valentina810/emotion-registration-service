@@ -1,4 +1,4 @@
-package com.github.valentina810.diaryofemotions.services;
+package com.github.valentina810.diaryofemotions.service;
 
 import com.github.valentina810.diaryofemotions.domain.dto.EmotionCreateDto;
 import com.github.valentina810.diaryofemotions.domain.dto.EmotionDto;

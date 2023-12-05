@@ -1,9 +1,9 @@
-package com.github.valentina810.diaryofemotions.controllers;
+package com.github.valentina810.diaryofemotions.controller;
 
 import com.github.valentina810.diaryofemotions.domain.dto.EmotionDto;
 import com.github.valentina810.diaryofemotions.exception.MockServiceException;
 import com.github.valentina810.diaryofemotions.exception.NotFoundException;
-import com.github.valentina810.diaryofemotions.services.EmotionService;
+import com.github.valentina810.diaryofemotions.service.EmotionService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;

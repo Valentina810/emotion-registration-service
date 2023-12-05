@@ -2,6 +2,7 @@ package com.github.valentina810.diaryofemotions.domain.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -22,6 +23,7 @@ import javax.persistence.Table;
 @AllArgsConstructor
 @Builder
 @Entity
+@EqualsAndHashCode
 @Table(name = "emotions")
 public class Emotion {
     @Id

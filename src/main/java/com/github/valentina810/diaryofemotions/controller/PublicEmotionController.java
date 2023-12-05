@@ -1,7 +1,7 @@
-package com.github.valentina810.diaryofemotions.controllers;
+package com.github.valentina810.diaryofemotions.controller;
 
 import com.github.valentina810.diaryofemotions.domain.dto.EmotionDto;
-import com.github.valentina810.diaryofemotions.services.EmotionService;
+import com.github.valentina810.diaryofemotions.service.EmotionService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;

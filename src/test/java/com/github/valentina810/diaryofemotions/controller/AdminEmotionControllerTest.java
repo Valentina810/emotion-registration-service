@@ -1,11 +1,11 @@
-package com.github.valentina810.diaryofemotions.controllers;
+package com.github.valentina810.diaryofemotions.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.valentina810.diaryofemotions.domain.dto.EmotionCreateDto;
 import com.github.valentina810.diaryofemotions.domain.dto.EmotionDto;
 import com.github.valentina810.diaryofemotions.exception.MockServiceException;
 import com.github.valentina810.diaryofemotions.exception.ObjectMapperException;
-import com.github.valentina810.diaryofemotions.services.EmotionService;
+import com.github.valentina810.diaryofemotions.service.EmotionService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -18,6 +18,7 @@ import java.nio.charset.StandardCharsets;
 import static org.hamcrest.Matchers.is;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyLong;
+import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -98,7 +99,7 @@ class AdminEmotionControllerTest {
             throw new ObjectMapperException(emotionCreateDto.toString());
         }
 
-        verify(emotionService, times(0)).addEmotion(emotionCreateDto);
+        verify(emotionService, never()).addEmotion(emotionCreateDto);
     }
 
     @Test
@@ -116,7 +117,7 @@ class AdminEmotionControllerTest {
             throw new ObjectMapperException(emotionCreateDto.toString());
         }
 
-        verify(emotionService, times(0)).addEmotion(emotionCreateDto);
+        verify(emotionService, never()).addEmotion(emotionCreateDto);
     }
 
     @Test
@@ -134,7 +135,7 @@ class AdminEmotionControllerTest {
             throw new ObjectMapperException(emotionCreateDto.toString());
         }
 
-        verify(emotionService, times(0)).addEmotion(emotionCreateDto);
+        verify(emotionService, never()).addEmotion(emotionCreateDto);
     }
 
     @Test
@@ -152,7 +153,7 @@ class AdminEmotionControllerTest {
             throw new ObjectMapperException(emotionCreateDto.toString());
         }
 
-        verify(emotionService, times(0)).addEmotion(emotionCreateDto);
+        verify(emotionService, never()).addEmotion(emotionCreateDto);
     }
 
     @Test
@@ -199,11 +200,10 @@ class AdminEmotionControllerTest {
                             .accept(MediaType.APPLICATION_JSON))
                     .andExpect(status().isBadRequest());
         } catch (Exception e) {
-
             throw new ObjectMapperException(emotionCreateDtoForUpdate.toString());
         }
 
-        verify(emotionService, times(0)).updateEmotion(1, emotionCreateDtoForUpdate);
+        verify(emotionService, never()).updateEmotion(1, emotionCreateDtoForUpdate);
     }
 
     @Test
@@ -219,6 +219,6 @@ class AdminEmotionControllerTest {
             throw new ObjectMapperException(emotionCreateDtoForUpdate.toString());
         }
 
-        verify(emotionService, times(0)).updateEmotion(1, emotionCreateDtoForUpdate);
+        verify(emotionService, never()).updateEmotion(1, emotionCreateDtoForUpdate);
     }
 }
